@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Memo Transcription Service</title>
+    <link rel="stylesheet" href="{% load static %}{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Voice Memo Transcription Service</h1>
+        <p>Welcome to your personal voice memo transcription system.</p>
+        
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }}!</p>
+            <a href="{% url 'recording_list' %}">View Recordings</a>
+            <a href="{% url 'admin:logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'admin:login' %}">Login</a>
+        {% endif %}
+    </div>
+</body>
+</html>
